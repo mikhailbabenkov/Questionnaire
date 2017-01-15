@@ -1,0 +1,51 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.0.6-eap-112'
+    ext.gradlePluginVersion = '2.2.3'
+    repositories {
+        jcenter()
+        maven {
+            url 'http://dl.bintray.com/kotlin/kotlin-eap'
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://www.jitpack.io" }
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+        maven { url 'http://repository.jetbrains.com/spek/' }
+    }
+}
+
+ext{
+    minSdkVersion = 16
+    targetSdkVersion = 25
+    compileSdkVersion = 25
+    buildToolsVersion = '25.0.0'
+    supportLibraryVersion = "25.0.1"
+
+    injeckVersion = "1.16.1"
+    rxAndroid = "1.2.1"
+    rxKotlin = "0.60.0"
+
+    //testing
+    rulesVersion = '0.5'
+    junitVersion = '4.12'
+    mockitoVersion = '1.10.19'
+    mockitoKotlinVersion = '0.6.2'
+    spekVersion = "1.0.25"
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

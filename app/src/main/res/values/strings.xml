@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Questionnaire</string>
+    <string name="preferences">my_preferences</string>
+    <string name="welcome">Welcome!</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="right_side_menu">Right Side Menu</string>
+    <string name="investor_types">Investor types</string>
+    <string name="lbl_introduce_text">Hi,
+         <b>What is Lorem Ipsum</b>?\n\n
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </string>
+    <string name="lbl_usage">Please use navigation menu on the right.</string>
+    <string name="lbl_question_1">blalbla</string>
+    <string name="lbl_question_2">blalbla</string>
+    <string name="lbl_question_3">blalbla</string>
+    <string name="lbl_question_4">blalbla</string>
+    <string name="lbl_question_5">blalbla</string>
+    <string name="next">Next</string>
+    <string name="msg_quit_questionnaire">Are you sure you want to go to stop process?</string>
+    <string name="msg_please_select_answer">Please select an answer</string>
+    <string name="lbl_total_score">Your total score:</string>
+    <string name="show">Show</string>
+    <string-array
+        name="answers_1">
+        <item>text_string1</item>
+        <item>text_string1</item>
+        <item>text_string1</item>
+        <item>text_string1</item>
+        <item>text_string1</item>
+    </string-array>
+    <string-array
+        name="answers_2">
+        <item>text_string2</item>
+        <item>text_string2</item>
+        <item>text_string2</item>
+        <item>text_string2</item>
+        <item>text_string2</item>
+    </string-array>
+    <string-array
+        name="answers_3">
+        <item>text_string3</item>
+        <item>text_string3</item>
+        <item>text_string3</item>
+        <item>text_string3</item>
+        <item>text_string3</item>
+    </string-array>
+    <string-array
+        name="answers_4">
+        <item>text_string4</item>
+        <item>text_string4</item>
+        <item>text_string4</item>
+        <item>text_string4</item>
+        <item>text_string4</item>
+    </string-array>
+    <string-array
+        name="answers_5">
+        <item>text_string5</item>
+        <item>text_string5</item>
+        <item>text_string5</item>
+        <item>text_string5</item>
+        <item>text_string5</item>
+    </string-array>
+</resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="presenter"
+            type="com.questionnaire.michaelbabenkov.questionnaire.ui.questionnaire.QuestionnairePresenter" />
+
+        <variable
+            name="viewModel"
+            type="com.questionnaire.michaelbabenkov.questionnaire.ui.questionnaire.QuestionnaireViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.question}"/>
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:choiceMode="singleChoice"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> presenter.onNextClicked()}"
+                android:text="@string/next" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/default_spacing"
+            android:visibility="@{viewModel.loading ? View.VISIBLE : View.GONE}" />
+
+    </FrameLayout>
+</layout>

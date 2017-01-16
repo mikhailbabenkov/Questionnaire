@@ -30,9 +30,11 @@ class MainPresenterTest: Spek({
         presenter.view = mockView
     }
 
-    given("screen is opened") {
+    describe("screen is opened first time") {
 
         beforeEach {
+            Mockito.`when`(sharedPref.getBoolean(any(), any())).then { false }
+            Mockito.`when`(sharedPref.getInt(any(), any())).then { 0 }
             presenter.start()
         }
 
@@ -40,23 +42,22 @@ class MainPresenterTest: Spek({
             verify(mockView).showLoading()
         }
 
-        on("on first time status resolved") {
-            beforeEach {
-                Mockito.reset(mockView)
-                Mockito.`when`(sharedPref.getBoolean(any(), any())).then { false }
-                Mockito.`when`(sharedPref.getInt(any(), any())).then { 0 }
-            }
-
-            it("should show disabled state") {
-                verify(mockView).setSubmitState(SubmitState.DISABLED)
-            }
+        it("should show hide loading") {
+            verify(mockView).hideLoading()
         }
 
-        on("after finished questionnaire status resolved") {
+        it("should show disabled state") {
+            verify(mockView).setSubmitState(SubmitState.DISABLED)
+        }
+    }
+
+    describe("screen is opened not the first time") {
+
+        on("after finished questionnaire") {
             beforeEach {
-                Mockito.reset(mockView)
                 Mockito.`when`(sharedPref.getBoolean(any(), any())).then { false }
                 Mockito.`when`(sharedPref.getInt(any(), any())).then { 12 }
+                presenter.start()
             }
 
             it("should show submit state") {
@@ -64,20 +65,17 @@ class MainPresenterTest: Spek({
             }
         }
 
-        on("after submission finished status resolved") {
+        on("after submission sent") {
             beforeEach {
-                Mockito.reset(mockView)
+
                 Mockito.`when`(sharedPref.getBoolean(any(), any())).then { true }
                 Mockito.`when`(sharedPref.getInt(any(), any())).then { 12 }
+                presenter.start()
             }
 
             it("should show submit state") {
                 verify(mockView).setSubmitState(SubmitState.SUBMITTED)
             }
-        }
-
-        it("should show hide loading") {
-            verify(mockView).hideLoading()
         }
 
     }

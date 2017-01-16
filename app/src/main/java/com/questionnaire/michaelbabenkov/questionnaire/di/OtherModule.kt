@@ -5,9 +5,7 @@ import com.questionnaire.michaelbabenkov.questionnaire.infrastructure.executors.
 import com.questionnaire.michaelbabenkov.questionnaire.infrastructure.executors.RxThread
 import com.questionnaire.michaelbabenkov.questionnaire.infrastructure.navigation.Navigator
 import com.questionnaire.michaelbabenkov.questionnaire.infrastructure.navigation.NavigatorImpl
-import uy.kohesive.injekt.api.InjektModule
-import uy.kohesive.injekt.api.InjektRegistrar
-import uy.kohesive.injekt.api.addSingletonFactory
+import uy.kohesive.injekt.api.*
 import java.util.concurrent.Executor
 
 /**
@@ -29,6 +27,8 @@ object OtherModule : InjektModule {
         addSingletonFactory<Navigator> {
             NavigatorImpl()
         }
+
+        addPerKeyFactory<Long, String> { key -> 1000L }
 
     }
 }

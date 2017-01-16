@@ -1,26 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/lbl_total_score"/>
 
-    <TextView
-        android:layout_gravity="center_horizontal"
-        android:layout_width="match_parent"
-        android:text=""
-        android:textSize="24sp"
-        android:layout_height="wrap_content" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""/>
+    <data>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/show"/>
-</LinearLayout>
+        <import type="android.view.View" />
+
+        <variable
+            name="presenter"
+            type="com.questionnaire.michaelbabenkov.questionnaire.ui.summary.SummaryPresenter" />
+
+        <variable
+            name="viewModel"
+            type="com.questionnaire.michaelbabenkov.questionnaire.ui.summary.SummaryViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_spacing"
+            android:text="@string/lbl_total_score" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_spacing"
+            android:layout_gravity="center_vertical"
+            android:text="@{viewModel.points}"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_spacing"
+            android:text="@{@string/lbl_investor_type(viewModel.investorType)}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_spacing"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:onClick="@{() -> presenter.onShowClicked()}"
+            android:text="@string/show" />
+    </LinearLayout>
+</layout>

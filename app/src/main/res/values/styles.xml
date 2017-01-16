@@ -25,4 +25,5 @@
     <style name="AppTheme.Welcome" parent="AppTheme.NoActionBar"/>
     <style name="AppTheme.Main" parent="AppTheme.NoActionBar"/>
     <style name="AppTheme.Questionnaire" parent="AppTheme.NoActionBar"/>
+    <style name="AppTheme.Submit" parent="AppTheme.NoActionBar"/>
 </resources>

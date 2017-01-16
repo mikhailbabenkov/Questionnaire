@@ -25,6 +25,53 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     <string name="msg_please_select_answer">Please select an answer</string>
     <string name="lbl_total_score">Your total score:</string>
     <string name="show">Show</string>
+    <string name="lbl_aggressive_growth">
+        An aggressive investor:\n\n
+            \u0020\u0020\u25CF Accepts extreme ups and downs in the value of their investments\n\n
+            \u0020\u0020\u25CF Can achieve higher returns over the long term\n\n
+            \u0020\u0020\u25CF Does not need regular income from their investments\n\n
+            \u0020\u0020\u25CF Use the drop-down list above to compare your type with others.
+
+    </string>
+    <string name="lbl_defensive">
+        A defensive investor:\n\n
+            \u0020\u0020\u25CF Requires investments to be protected to minimise ups and downs in value\n\n
+            \u0020\u0020\u25CF Is prepared to accept lower long-term returns\n\n
+            \u0020\u0020\u25CF May need regular income from their investments.
+    </string>
+    <string name="lbl_conservative">
+        A conservative investor:\n\n
+            \u0020\u0020\u25CF Looks to minimise ups and downs in the value of their investments\n\n
+            \u0020\u0020\u25CF Is prepared to accept lower returns\n\n
+            \u0020\u0020\u25CF May need regular income from their investments
+    </string>
+    <string name="lbl_balanced">
+        A balanced investor:\n\n
+            \u0020\u0020\u25CF Tolerates some ups and downs in the value of their investments\n\n
+            \u0020\u0020\u25CF Can achieve good returns over the long term\n\n
+            \u0020\u0020\u25CF Needs minimal income from their investments
+    </string>
+    <string name="lbl_balanced_growth">
+        A balanced growth investor:\n\n
+            \u0020\u0020\u25CF Accepts significant ups and downs in the value of their investments\n\n
+            \u0020\u0020\u25CF Can achieve high returns over the long term\n\n
+            \u0020\u0020\u25CF Needs minimal income from their investments
+    </string>
+    <string name="lbl_growth">
+        A growth investor:\n\n
+            \u0020\u0020\u25CF Accepts significant ups and downs in the value of their investments\n\n
+            \u0020\u0020\u25CF Can achieve high returns over the long term\n\n
+            \u0020\u0020\u25CF Needs minimal income from their investments
+    </string>
+    <string name="lbl_investor_type">You are a \"%s\" type investor</string>
+    <string name="lbl_booster">Booster</string>
+    <string name="lbl_questionnaire">Questionnaire</string>
+    <string name="hint_email">Email</string>
+    <string name="submit">Submit</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_phone">Phone</string>
+    <string name="lbl_submit">Submit</string>
+    <string name="msg_invalid_email">Invalid Email</string>
     <string-array
         name="answers_1">
         <item>text_string1</item>

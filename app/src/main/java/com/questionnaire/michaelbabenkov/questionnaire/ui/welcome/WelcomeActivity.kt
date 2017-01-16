@@ -8,11 +8,8 @@ import com.questionnaire.michaelbabenkov.questionnaire.R
 import com.questionnaire.michaelbabenkov.questionnaire.ui.BaseActivity
 
 class WelcomeActivity : BaseActivity() {
-    override val layoutResId: Int = R.layout.activity_welcome
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    override val layoutResId: Int = R.layout.activity_welcome
 
     fun onWelcomeClicked(view: View) {
         navigator.navigateToMain(this)

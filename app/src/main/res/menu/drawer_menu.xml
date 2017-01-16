@@ -3,42 +3,45 @@
 
     <item android:title="@string/investor_types">
         <menu>
-            <item
-                android:id="@+id/nav_defensive"
-                android:icon="@drawable/ic_insert_emoticon_defensive"
-                android:title="Defensive" />
-            <item
-                android:id="@+id/nav_conservative"
-                android:icon="@drawable/ic_insert_emoticon_conservative"
-                android:title="Conservative" />
-            <item
-                android:id="@+id/nav_balanced"
-                android:icon="@drawable/ic_insert_emoticon_balanced"
-                android:title="Balanced" />
-            <item
-                android:id="@+id/nav_balanced_growth"
-                android:icon="@drawable/ic_insert_balanced_growth"
-                android:title="Balanced Growth" />
-            <item
-                android:id="@+id/nav_growth"
-                android:icon="@drawable/ic_insert_growth"
-                android:title="Growth" />
-            <item
-                android:id="@+id/nav_aggressive"
-                android:icon="@drawable/ic_insert_aggressive"
-                android:title="Aggressive Growth" />
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_defensive"
+                    android:icon="@drawable/ic_insert_emoticon_defensive"
+                    android:title="Defensive" />
+                <item
+                    android:id="@+id/nav_conservative"
+                    android:icon="@drawable/ic_insert_emoticon_conservative"
+                    android:title="Conservative" />
+                <item
+                    android:id="@+id/nav_balanced"
+                    android:icon="@drawable/ic_insert_emoticon_balanced"
+                    android:title="Balanced" />
+                <item
+                    android:id="@+id/nav_balanced_growth"
+                    android:icon="@drawable/ic_insert_balanced_growth"
+                    android:title="Balanced Growth" />
+                <item
+                    android:id="@+id/nav_growth"
+                    android:icon="@drawable/ic_insert_growth"
+                    android:title="Growth" />
+                <item
+                    android:id="@+id/nav_aggressive"
+                    android:icon="@drawable/ic_insert_aggressive"
+                    android:title="Aggressive Growth" />
+            </group>
         </menu>
     </item>
 
-        <group android:checkableBehavior="single">
-            <item
-                android:id="@+id/nav_questionnaire"
-                android:icon="@drawable/ic_android_green_24dp"
-                android:title="Questionnaire" />
-            <item
-                android:id="@+id/nav_submit"
-                android:icon="@drawable/ic_check_circle_black"
-                android:title="Submit" />
-        </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_questionnaire"
+            android:icon="@drawable/ic_android_green_24dp"
+            android:title="Questionnaire" />
+        <item
+            android:id="@+id/nav_submit"
+            android:icon="@drawable/ic_check_circle_black"
+            android:title="Submit" />
+    </group>
+
 
 </menu>

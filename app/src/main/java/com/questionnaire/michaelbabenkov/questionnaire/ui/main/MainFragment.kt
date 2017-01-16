@@ -23,17 +23,8 @@ class MainFragment: BaseCallbackFragment<MainContract.Callback>(), MainContract.
     private val presenter: MainContract.Presenter
             by lazy { activityInjektScope.get<MainContract.Presenter>() }
 
-//    companion object {
-//        val EXTRA_VIEW_MODEL = "main-extra-view-model"
-//    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        if(savedInstanceState == null) {
-//            viewModel = MainViewModel()
-//        } else {
-//            viewModel = savedInstanceState.getParcelable(EXTRA_VIEW_MODEL)
-//        }
         presenter.view = this
     }
 
@@ -52,11 +43,6 @@ class MainFragment: BaseCallbackFragment<MainContract.Callback>(), MainContract.
         super.onStop()
         presenter.stop()
     }
-
-//    override fun onSaveInstanceState(outState: Bundle) {
-//        super.onSaveInstanceState(outState)
-//        outState.putParcelable(EXTRA_VIEW_MODEL, viewModel)
-//    }
 
     override fun showLoading() {
         viewModel.loading = true

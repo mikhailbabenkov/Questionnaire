@@ -1,28 +1,24 @@
-package com.questionnaire.michaelbabenkov.questionnaire.ui.summary
+package com.questionnaire.michaelbabenkov.questionnaire.ui.investorType
 
 import android.os.Bundle
 import com.questionnaire.michaelbabenkov.questionnaire.infrastructure.shared.InvestorType
 import com.questionnaire.michaelbabenkov.questionnaire.infrastructure.shared.Question
+import com.questionnaire.michaelbabenkov.questionnaire.infrastructure.shared.SubmitState
 import com.questionnaire.michaelbabenkov.questionnaire.ui.BasePresenter
 
 /**
- * Created by michael.babenkov on 13/01/17.
+ * Created by michael.babenkov on 16/01/17.
  */
-interface SummaryContract {
+interface InvestorTypeContract {
     interface View {
-        fun showPoints(points: Int)
-        fun showInvestorType(investorType: String)
-        fun showInvestorInfoScreen(investorType: InvestorType)
+        fun setDescription(descRes: Int)
+        fun setChart(chartRes: Int)
     }
 
     interface Presenter : BasePresenter<View> {
-        var points: Int
+        var investorType: InvestorType
         fun restoreInstanceState(savedInstanceState: Bundle?)
         fun saveInstanceState(outState: Bundle)
-        fun onShowClicked()
     }
 
-    interface Callback {
-        fun showInvestorInfoScreen(investorType: InvestorType)
-    }
 }

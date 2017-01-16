@@ -1,6 +1,7 @@
 package com.questionnaire.michaelbabenkov.questionnaire.infrastructure.repositories.impl
 
 import android.content.SharedPreferences
+import com.questionnaire.michaelbabenkov.questionnaire.infrastructure.model.SubmitForm
 import com.questionnaire.michaelbabenkov.questionnaire.infrastructure.repositories.QuestionnaireRepository
 import com.questionnaire.michaelbabenkov.questionnaire.infrastructure.shared.SubmitState
 import rx.Observable
@@ -41,6 +42,17 @@ class QuestionnaireRepositoryImpl(private val sharedPreferences: SharedPreferenc
             sharedPreferences.edit().putBoolean(SUBMITED_PREF, false).apply()
             sharedPreferences.edit().putInt(SUBMITED_POINTS, points).apply()
             subscriber.onNext(points)
+            subscriber.onCompleted()
+        }
+        return observable.delay(1000, TimeUnit.MILLISECONDS)
+    }
+
+    override fun submitForm(name: String, email: String, phone: String): Observable<SubmitForm> {
+        val observable = Observable.create<SubmitForm> { subscriber ->
+            val pointsToSubmit = sharedPreferences.getInt(SUBMITED_POINTS, 0)
+            sharedPreferences.edit().putBoolean(SUBMITED_PREF, true).apply()
+            subscriber.onNext(
+                    SubmitForm(name = name, email = email, phone = phone, points = pointsToSubmit))
             subscriber.onCompleted()
         }
         return observable.delay(1000, TimeUnit.MILLISECONDS)

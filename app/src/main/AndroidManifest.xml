@@ -20,11 +20,18 @@
         </activity>
         <activity
             android:name=".ui.main.MainActivity"
+            android:label="@string/lbl_booster"
             android:theme="@style/AppTheme.Main"/>
 
         <activity
             android:name=".ui.questionnaire.QuestionnaireActivity"
+            android:label="@string/lbl_questionnaire"
             android:theme="@style/AppTheme.Questionnaire"/>
+
+        <activity
+            android:name=".ui.submit.SubmitActivity"
+            android:label="@string/lbl_submit"
+            android:theme="@style/AppTheme.Submit"/>
     </application>
 
 </manifest>

@@ -4,19 +4,23 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
-import android.support.v4.widget.DrawerLayout
 import android.view.Menu
 import android.view.MenuItem
 import com.questionnaire.michaelbabenkov.questionnaire.R
 import com.questionnaire.michaelbabenkov.questionnaire.databinding.ActivityDrawerBinding
-import android.view.MenuInflater
-import android.databinding.adapters.CompoundButtonBindingAdapter.setChecked
+import android.view.View
+import com.questionnaire.michaelbabenkov.questionnaire.infrastructure.shared.InvestorType
+import com.questionnaire.michaelbabenkov.questionnaire.ui.investorType.InvestorTypeContract
+import com.questionnaire.michaelbabenkov.questionnaire.ui.investorType.InvestorTypeFragment
+import com.questionnaire.michaelbabenkov.questionnaire.ui.main.MainActivity
 
 
 /**
  * Created by michael.babenkov on 11/01/17.
  */
-abstract class BaseMenuActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
+abstract class BaseMenuActivity :
+        BaseActivity(),
+        NavigationView.OnNavigationItemSelectedListener {
 
     override val layoutResId: Int = R.layout.activity_drawer
     protected lateinit var binding: ActivityDrawerBinding
@@ -37,12 +41,22 @@ abstract class BaseMenuActivity : BaseActivity(), NavigationView.OnNavigationIte
         }
     }
 
+    fun navigateHome(view: View) {
+        if (this !is MainActivity) {
+            navigator.navigateToMain(this)
+        }
+    }
+
     override fun onResume() {
         super.onResume()
-        if (selectedItem == null) {
+        setCheckedItem(selectedItem)
+    }
+
+    protected fun setCheckedItem(checkedItem: Int?) {
+        if (checkedItem == null) {
             uncheckAllItems()
         } else {
-            binding.navigationView.setCheckedItem(selectedItem as Int)
+            binding.navigationView.setCheckedItem(checkedItem)
         }
     }
 
@@ -57,7 +71,6 @@ abstract class BaseMenuActivity : BaseActivity(), NavigationView.OnNavigationIte
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.base_menu, menu)
-
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -86,24 +99,42 @@ abstract class BaseMenuActivity : BaseActivity(), NavigationView.OnNavigationIte
         // Handle navigation view item clicks here.
 
         when (item.itemId) {
-            R.id.nav_questionnaire -> navigator.navigateToQuestionnaire(this)
+            R.id.nav_questionnaire -> {
+                navigator.navigateToQuestionnaire(this)
+            }
+            R.id.nav_submit -> {
+                navigator.navigateToSubmit(this)
+            }
+            R.id.nav_balanced -> {
+                showInvestorTypeScreen(InvestorType.BALANCED)
+            }
+            R.id.nav_conservative -> {
+                showInvestorTypeScreen(InvestorType.CONSERVATIVE)
+                setCheckedItem(R.id.nav_conservative)
+            }
+            R.id.nav_defensive -> {
+                showInvestorTypeScreen(InvestorType.DEFENSIVE)
+                setCheckedItem(R.id.nav_defensive)
+            }
+            R.id.nav_growth -> {
+                showInvestorTypeScreen(InvestorType.GROWTH)
+                setCheckedItem(R.id.nav_growth)
+            }
+            R.id.nav_aggressive -> {
+                showInvestorTypeScreen(InvestorType.AGGRESSIVE_GROWTH)
+                setCheckedItem(R.id.nav_aggressive)
+            }
+            R.id.nav_balanced_growth -> {
+                showInvestorTypeScreen(InvestorType.BALANCED_GROWTH)
+                setCheckedItem(R.id.nav_balanced_growth)
+            }
         }
-//
-//        if (id == R.id.nav_camera) {
-//            // Handle the camera action
-//        } else if (id == R.id.nav_gallery) {
-//
-//        } else if (id == R.id.nav_slideshow) {
-//
-//        } else if (id == R.id.nav_manage) {
-//
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
         binding.drawerLayout.closeDrawer(GravityCompat.END)
         return true
+    }
+
+    private fun  showInvestorTypeScreen(investorType: InvestorType) {
+        changeFragment(InvestorTypeFragment.newInstance(investorType))
     }
 
     abstract val selectedItem: Int?

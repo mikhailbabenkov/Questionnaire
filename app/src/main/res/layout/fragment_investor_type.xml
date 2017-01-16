@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.questionnaire.michaelbabenkov.questionnaire.ui.main.MainViewModel" />
+            type="com.questionnaire.michaelbabenkov.questionnaire.ui.investorType.InvestorTypeViewModel" />
     </data>
 
     <FrameLayout
@@ -17,8 +17,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -30,27 +29,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/default_spacing"
-                    android:text="@string/lbl_introduce_text"
+                    android:text="@{viewModel.description}"
                     android:textSize="16sp"
                     android:id="@+id/textView" />
 
-                <TextView
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/default_spacing"
+                    android:background="@color/divider"/>
+
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/default_spacing"
-                    android:text="@string/lbl_usage"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:src="@{viewModel.imageRes}" />
             </LinearLayout>
 
         </ScrollView>
-
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/default_spacing"
-            android:visibility="@{viewModel.loading ? View.VISIBLE : View.GONE}" />
 
     </FrameLayout>
 </layout>

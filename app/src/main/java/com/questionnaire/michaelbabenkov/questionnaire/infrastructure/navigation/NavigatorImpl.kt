@@ -2,13 +2,16 @@ package com.questionnaire.michaelbabenkov.questionnaire.infrastructure.navigatio
 
 import android.content.Context
 import android.widget.Toast
+import com.questionnaire.michaelbabenkov.questionnaire.infrastructure.shared.InvestorType
 import com.questionnaire.michaelbabenkov.questionnaire.ui.main.MainActivity
 import com.questionnaire.michaelbabenkov.questionnaire.ui.questionnaire.QuestionnaireActivity
+import com.questionnaire.michaelbabenkov.questionnaire.ui.submit.SubmitActivity
 
 /**
  * Created by michael.babenkov on 9/01/17.
  */
 class NavigatorImpl : Navigator {
+
     override fun navigateToQuestionnaire(context: Context) {
         val intent = QuestionnaireActivity.createLaunchIntent(context)
         context.startActivity(intent)
@@ -19,11 +22,10 @@ class NavigatorImpl : Navigator {
         context.startActivity(intent)
     }
 
-    override fun navigateToSummary(context: Context, points: Int) {
-        Toast.makeText(context, "Points:$points", Toast.LENGTH_LONG).show()
-        val intent = MainActivity.createLaunchIntent(context)
+    override fun navigateToSubmit(context: Context) {
+        val intent = SubmitActivity.createLaunchIntent(context)
         context.startActivity(intent)
-//        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
 
 }

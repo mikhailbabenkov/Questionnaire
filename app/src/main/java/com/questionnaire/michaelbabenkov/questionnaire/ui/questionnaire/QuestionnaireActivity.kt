@@ -11,6 +11,8 @@ import com.questionnaire.michaelbabenkov.questionnaire.ui.main.MainActivity
 import com.questionnaire.michaelbabenkov.questionnaire.ui.main.MainFragment
 import android.content.DialogInterface
 import android.support.v7.app.AlertDialog
+import com.questionnaire.michaelbabenkov.questionnaire.infrastructure.shared.InvestorType
+import com.questionnaire.michaelbabenkov.questionnaire.ui.investorType.InvestorTypeFragment
 import com.questionnaire.michaelbabenkov.questionnaire.ui.summary.SummaryContract
 import com.questionnaire.michaelbabenkov.questionnaire.ui.summary.SummaryFragment
 
@@ -36,8 +38,6 @@ class QuestionnaireActivity : BaseMenuActivity(), QuestionnaireContract.Callback
             val fragment = QuestionnaireFragment.newInstance(0, Question.ONE)
             changeFragment(fragment = fragment)
         }
-        binding.navigationView.menu.findItem(R.id.nav_submit).isVisible = false
-        binding.navigationView.setCheckedItem(R.id.nav_questionnaire)
     }
 
     override fun goNext(existingPoints: Int, nextQuestion: Question) {
@@ -46,15 +46,17 @@ class QuestionnaireActivity : BaseMenuActivity(), QuestionnaireContract.Callback
     }
 
     override fun finishQuestionnaire(points: Int) {
+        binding.navigationView.menu.findItem(R.id.nav_submit).isEnabled = true
         val fragment = SummaryFragment.newInstance(points)
         changeFragment(fragment)
     }
 
     override fun onBackPressed() {
-        if(currentFragment is SummaryFragment) {
-            navigator.navigateToMain(this)
-        } else {
-            showAlertDialog()
+        when(currentFragment) {
+            is SummaryFragment, is InvestorTypeFragment -> {
+                navigator.navigateToMain(this)
+            }
+            else -> showAlertDialog()
         }
     }
 
@@ -68,8 +70,8 @@ class QuestionnaireActivity : BaseMenuActivity(), QuestionnaireContract.Callback
                 .show()
     }
 
-    override fun showInvestorInfoScreen(points: Int) {
-//        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun showInvestorInfoScreen(investorType: InvestorType) {
+        changeFragment(InvestorTypeFragment.newInstance(investorType))
     }
 
 
